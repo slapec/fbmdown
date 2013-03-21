@@ -21,7 +21,7 @@ class FBMCmdUI(cmd.Cmd):
         self.prompt = '> '
 
     def do_quit(self, l):
-        print 'Bye'
+        print '- Bye!'
         return True
 
     def do_EOF(self, l):
@@ -32,7 +32,7 @@ class FBMCmdUI(cmd.Cmd):
         List names and thread ids of your friends you got messages from"""
 
         for i, thread in enumerate(self.fb.list_threads(), 1):
-            print u'#{0}: ({1}) - {2}'.format(i, thread.msg_id, thread.sender)
+            print u'- ID: {0} - {1}'.format(thread.msg_id, thread.sender)
             if i % self.ROWSPPAGE == 0:
                 cmd = raw_input('-- Press ENTER to scroll, type q to break -- ')
                 if cmd == 'q':
@@ -44,7 +44,7 @@ class FBMCmdUI(cmd.Cmd):
         try:
             thread_id, filename = l.split()
         except ValueError:
-            print 'Please type exactly 2 arguments. Example: save 1337 chatlog'
+            print '! Please type exactly 2 arguments. Example: save 1337 chatlog'
             return
 
         #TODO: This is not working from Windows console
@@ -106,5 +106,5 @@ else:
     token = raw_input('Access Token: ')
 
     ui = FBMCmdUI(token)
-    print "Type ? for available commands. Type quit or press CTRL+Z to quit."
+    print "- Type ? for available commands. Type quit or press CTRL+Z to quit."
     ui.cmdloop()
