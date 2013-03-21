@@ -159,9 +159,9 @@ class FBMPPrinters(object):
         if self.last_date != date.date():
             self.last_date = date.date()
             return ' '.join(['*****', str(self.last_date), '*' * 62]) + '\n'\
-                   + u'[{0}] <{1}> {2}'.format(date.strftime('%H:%M:%S'), msg.sender, msg.msg)
+                   + u'[{0}] <{1}> {2}'.format(date.strftime('%H:%M:%S'), msg.sender, msg.msg).encode('utf-8')
         else:
-            return u'[{0}] <{1}> {2}'.format(date.strftime('%H:%M:%S'), msg.sender, msg.msg)
+            return u'[{0}] <{1}> {2}'.format(date.strftime('%H:%M:%S'), msg.sender, msg.msg).encode('utf-8')
 
     @staticmethod
     def prettify_1(msg):
