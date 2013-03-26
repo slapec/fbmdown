@@ -1,6 +1,0 @@
-fbmdown - A simple Facebook Message Downloader script
-
-I wrote this application for my own experiment but it might be usefull for
-someone else so I made a CLI and az interactive interface to it.
-
-Run fbmdown-cli.py and follow the help (I will write longer readme soon)
