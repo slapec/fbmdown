@@ -113,7 +113,7 @@ class FBMDown(object):
         page_actual = 0
         page_total = int(math.ceil(self._message_count(thread_id) / float(self.OFFSET)))
         recipients_json = self.graph.call(params={'fields': 'to'}, path=thread_id)['to']['data']
-        recipients = {int(user['id']):user['name'] for user in recipients_json}
+        recipients = {user['id']:user['name'] for user in recipients_json}
 
         #TODO: Sanitize some input here too
         query = 'SELECT author_id, created_time, body FROM message WHERE thread_id = {0} ORDER BY created_time {1}'\
